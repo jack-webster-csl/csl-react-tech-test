@@ -16,36 +16,10 @@ const Posts: React.FC = () => {
       return;
     dispatch(setPosts(getPostsQueryResponse.data));
   }, [getPostsQueryResponse.data]);
-  /*
-  const dispatch = useAppDispatch();
-  const [searchQuery, setSearchQuery] = useState("");
 
-  const searchLocationsQueryResponse = useSearchLocationsQuery(searchQuery, {
-    skip: !searchQuery,
-  });
-
-  const isSearchQueryValid = () => searchQuery && searchQuery.length >= 2;
-  useEffect(() => {
-    if (!isSearchQueryValid() || !searchLocationsQueryResponse.isSuccess)
-      return;
-    dispatch(setSearchResults(searchLocationsQueryResponse.data));
-  }, [searchLocationsQueryResponse.data]);
-
-  useEffect(() => {
-    if (isSearchQueryValid()) return;
-    dispatch(clearSearchResults());
-  }, [searchQuery])*/
 
   return (
     <Stack>
-      {/*<TextField
-        id="standard-basic"
-        label="Search"
-        variant="standard"
-        style={{ marginBottom: "2rem" }}
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-      />*/}
       <PostsTable />
     </Stack>
   );

@@ -1,20 +1,20 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { LocationSearch } from "../../models/api/weather";
+import {Post} from "../../models/api";
 
 const baseQuery = fetchBaseQuery({
-  baseUrl: `https://www.metaweather.com/api`,
+  baseUrl: `https://jsonplaceholder.typicode.com`,
 });
 
 export const api = createApi({
   reducerPath: "api",
   baseQuery,
   endpoints: (builder) => ({
-    searchLocations: builder.query<LocationSearch[], string>({
-      query: (query: string) => {
-        return `/location/search?query=${query}`;
+    getPosts: builder.query<Post[], null>({
+      query: () => {
+        return `/posts`;
       },
     }),
   }),
 });
 
-export const { useSearchLocationsQuery } = api;
+export const { useGetPostsQuery } = api;
